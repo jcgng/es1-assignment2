@@ -1,0 +1,25 @@
+#summary Distribuição dos Tests cases
+
+= Introduction =
+
+Distribuição
+
+= Details =
+
+===*Done exercises*===
+* MyLinearSearch.java |
+* MyBinarySearch.java |
+* RecursiveSearch.java |
+----
+
+===*Julio*===
+* InfixFullParantEx.java |
+* MyGenericsStack.java |
+-----
+===*Joao*===
+* MyMergeSort.java |
+
+-----
+===*Rui*===
+* TowersOfHanoiImpl.java |
+* MyDynamicStack.java  |
