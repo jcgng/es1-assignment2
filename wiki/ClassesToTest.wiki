@@ -7,19 +7,22 @@ Distribuição
 = Details =
 
 ===*Done exercises*===
-* MyLinearSearch.java |
-* MyBinarySearch.java |
-* RecursiveSearch.java |
+
+
 ----
 
 ===*Julio*===
 * InfixFullParantEx.java |
 * MyGenericsStack.java |
 -----
+
 ===*Joao*===
 * MyMergeSort.java |
-
+* RecursiveSearch.java |
+* MyBinarySearch.java |
 -----
+
 ===*Rui*===
 * TowersOfHanoiImpl.java |
 * MyDynamicStack.java  |
+* MyLinearSearch.java |
