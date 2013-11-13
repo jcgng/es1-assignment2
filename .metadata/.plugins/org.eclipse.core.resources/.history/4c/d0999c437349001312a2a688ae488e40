@@ -1,0 +1,36 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import src.MyLinearSearch;
+
+public class MyLinearSearchTest {
+	
+	private int[] arr = {1, 2, 3, 4};
+	private int key1 = 4;
+	private int key2 = 6;
+	
+	//Not need it!
+	MyLinearSearch MyLS = new MyLinearSearch();
+	
+	@Test
+	public void testNewMyLinearSearchObject() {
+		assertNotNull(MyLS);
+	}
+	
+	@Test
+	public void testLinerSearchSucccess() {
+		int index1 = MyLinearSearch.linerSearch(arr, key1);
+		assertEquals(index1, 3);
+	}
+		
+	@Test
+		public void testLinerSearchFail() {
+		int index2 = MyLinearSearch.linerSearch(arr, key2);
+		assertEquals(index2, -1);
+		//fail("Not yet implemented");
+	}
+
+}

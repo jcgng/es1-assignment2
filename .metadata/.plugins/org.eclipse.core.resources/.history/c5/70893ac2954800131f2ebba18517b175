@@ -1,0 +1,17 @@
+package src.TestCases;
+
+import org.junit.Test;
+
+import src.RecursiveSearch;
+
+
+public class RecursiveSearchTest {
+	protected int[] inputArray = { 1,3,5 };
+	protected int key = 3;
+	protected RecursiveSearch mbs = new RecursiveSearch();
+	
+	@Test
+	public void testRecursiveSearch() {
+		
+	}
+}

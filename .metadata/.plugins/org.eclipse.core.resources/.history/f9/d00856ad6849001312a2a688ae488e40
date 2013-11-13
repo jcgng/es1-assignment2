@@ -1,0 +1,51 @@
+package src.TestSuite;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import src.InfixFullParantEx;
+import src.MyGenericsStack;
+import src.TowersOfHanoiImpl;
+
+public class InfixFullParantExTest {
+	@Test
+	public void testInfixFullParantExTest() {
+		InfixFullParantEx infixEvaluate = new InfixFullParantEx();
+		assertNotNull(infixEvaluate);
+	}
+	
+	@Test
+	public void testEvaluateInfix() {
+		String sum = InfixFullParantEx.evaluateInfix("{10+ 2}");
+		assertEquals(sum, "12");
+		String mult = InfixFullParantEx.evaluateInfix("(5*3)");
+		assertEquals(mult, "15");
+		String sub = InfixFullParantEx.evaluateInfix("{10 -8}");
+		assertEquals(sub, "2");
+		String div = InfixFullParantEx.evaluateInfix("(30 / 3)");
+		assertEquals(div, "10");
+		/* no start char */
+		String res = InfixFullParantEx.evaluateInfix("3+5)");
+		assertEquals(res, "8");
+		/* invalid end char */
+		res = InfixFullParantEx.evaluateInfix("(3 / 3+]");
+		assertEquals(res, "+");
+		/* invalid operator */
+		res = InfixFullParantEx.evaluateInfix("(3 ( 3)");
+		assertEquals(res, "0");
+		/* divide by zero */
+		String divzero = InfixFullParantEx.evaluateInfix("{10/ 0} ");
+		assertEquals(divzero, "");
+		
+	}
+}

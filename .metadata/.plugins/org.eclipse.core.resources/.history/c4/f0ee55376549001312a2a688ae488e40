@@ -1,0 +1,14 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TowersOfHanoiImplTest {
+
+	@Test
+	public void testTowersOfHanoi() {
+		fail("Not yet implemented");
+	}
+
+}

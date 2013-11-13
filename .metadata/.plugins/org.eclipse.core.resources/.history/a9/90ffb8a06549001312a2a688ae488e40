@@ -1,0 +1,145 @@
+package src.TestSuite;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import src.InfixFullParantEx;
+import src.MyGenericsStack;
+import src.TowersOfHanoiImpl;
+
+public class InfixFullParantExTest {
+
+	private final ByteArrayOutputStream outConsole = new ByteArrayOutputStream();
+	private String[] hanoiExpected = {
+			"Move disk 1 from tower 1 to top of tower 3",
+			"Move disk 2 from tower 1 to top of tower 2",
+			"Move disk 1 from tower 3 to top of tower 2",
+			"Move disk 3 from tower 1 to top of tower 3",
+			"Move disk 1 from tower 2 to top of tower 1",
+			"Move disk 2 from tower 2 to top of tower 3",
+			"Move disk 1 from tower 1 to top of tower 3",
+			"Move disk 4 from tower 1 to top of tower 2",
+			"Move disk 1 from tower 3 to top of tower 2",
+			"Move disk 2 from tower 3 to top of tower 1",
+			"Move disk 1 from tower 2 to top of tower 1",
+			"Move disk 3 from tower 3 to top of tower 2",
+			"Move disk 1 from tower 1 to top of tower 3",
+			"Move disk 2 from tower 1 to top of tower 2",
+			"Move disk 1 from tower 3 to top of tower 2"
+};
+	
+	@Before
+	public void setOutStreams(){
+		System.setOut(new PrintStream(outConsole,false));
+	
+	}
+	
+	@After
+	public void cleanOutStreams(){
+		System.setOut(null);
+	}
+	
+	InfixFullParantEx infixEvaluate = new InfixFullParantEx();
+	
+	@Test
+	public void SumEvaluateInfix() {
+		assertNotNull(infixEvaluate);
+		String sum = InfixFullParantEx.evaluateInfix("{10+ 2}");
+		assertEquals(sum, "12");
+	}	
+	
+	@Test
+	public void MultEvaluateInfix() {
+		String mult = InfixFullParantEx.evaluateInfix("(5*3)");
+		assertEquals(mult, "15");
+	}	
+	@Test
+	public void SubEvaluateInfix() {
+		String sub = InfixFullParantEx.evaluateInfix("{10 -8}");
+		assertEquals(sub, "2");
+	}
+	@Test
+	public void DivEvaluateInfix() {
+		String div = InfixFullParantEx.evaluateInfix("(30 / 3)");
+		assertEquals(div, "10");
+	}
+
+	@Test
+	public void Div2EvaluateInfix() {
+		String div2 = InfixFullParantEx.evaluateInfix("(3 / 3+]");
+		assertEquals(div2, "+");
+	}
+	
+	@Test
+	public void OpFalseEvaluateInfix() {
+		String op = InfixFullParantEx.evaluateInfix("(3 ( 3)");
+		assertEquals(op, "0");
+	}
+	
+	@Test
+	public void EmptyStackEvaluateInfix() {
+		String es = InfixFullParantEx.evaluateInfix("3+5)");
+		assertEquals(es, "8");
+	}
+ 	
+	@Test
+	/* 
+	 * Error condition (integer divided by zero) 
+	 */
+	public void DivEvaluateInfixError() {
+	String divzero = InfixFullParantEx.evaluateInfix("{10/ 0} ");
+	assertEquals(divzero, "");
+	}
+	 
+	
+	/* MyGenericStack tests  */
+	
+	
+	MyGenericsStack GenericsStack = new MyGenericsStack(5);
+	
+		 
+	@Test
+	public void StackTestsMyGenericsStack() {
+	assertFalse(GenericsStack.isStackFull());
+	GenericsStack.push("a");
+	GenericsStack.push("a");
+	GenericsStack.push("a");
+	GenericsStack.push("a");
+	GenericsStack.push("a");
+	assertTrue(GenericsStack.isStackFull());
+	GenericsStack.push("b");
+//	assertEquals("Stack is full. Increasing the capacity.", outConsole.toString());
+	assertFalse(GenericsStack.isStackFull());
+	
+	} 
+	
+	
+	@Test
+	
+	public void PeekTest() {
+		GenericsStack.push("b");
+		assertEquals(GenericsStack.peek(), "b");
+		 
+	}
+	
+	TowersOfHanoiImpl towersHanoi = new TowersOfHanoiImpl();
+	
+	@Test
+	public void Tower(){
+		assertNotNull(towersHanoi);
+		TowersOfHanoiImpl.towersOfHanoi(4);
+		String[] tokens = outConsole.toString().split("\r\n");
+		assertArrayEquals(hanoiExpected,tokens);
+		TowersOfHanoiImpl.showTowerStates(4, 1, 2, 3);
+	}
+}

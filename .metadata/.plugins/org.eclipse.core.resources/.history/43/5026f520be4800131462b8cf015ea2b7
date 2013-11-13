@@ -1,0 +1,37 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import src.MyMergeSort;
+
+public class MyMergeSortTest {
+	private final ByteArrayOutputStream outConsole = new ByteArrayOutputStream();
+//	private final ByteArrayOutputStream errConsole = new ByteArrayOutputStream();
+	
+	@Before
+	public void setOutStreams() {
+	    System.setOut(new PrintStream(outConsole));
+//	    System.setErr(new PrintStream(errConsole));
+	}
+
+	@Test
+	public void testMyMergeSort() {
+		MyMergeSort.main(new String[] {});
+		assertEquals("4 11 23 28 43 45 65 77 89 98 ", outConsole.toString());
+	}
+	
+	@After
+	public void cleanOutStreams() {
+	    System.setOut(null);
+//	    System.setErr(null);
+	}
+	
+	
+}

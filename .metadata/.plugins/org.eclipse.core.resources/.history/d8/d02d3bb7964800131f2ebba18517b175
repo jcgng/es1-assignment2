@@ -1,0 +1,24 @@
+package src.TestCases;
+
+import org.junit.Test;
+
+import src.RecursiveSearch;
+
+
+public class RecursiveSearchTest {
+	protected int[] inputArray = { 1,3,5 }; // TODO: Use MyMergeSort
+	protected int key = 3;
+
+	@Test
+	public void testRecursiveSearch() {
+		testRecursiveSearchFind();
+	}
+	
+	public int testRecursiveSearchFind() {	
+		return RecursiveSearch.recursiveSearch(inputArray,/*start*/0,/*end*/2,/*key*/3);
+	}
+	
+	public int testBinarySearchFail() {
+		return RecursiveSearch.recursiveSearch(inputArray,/*start*/0,/*end*/2,/*key*/4);
+	}
+}

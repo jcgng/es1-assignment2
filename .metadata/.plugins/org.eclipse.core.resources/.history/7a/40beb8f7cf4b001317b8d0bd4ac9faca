@@ -1,0 +1,16 @@
+package src.TestSuite;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+@RunWith(Suite.class)
+public class TestSuite {
+	@BeforeClass public static void setUpClass() {
+        // Common initialization done once
+    }
+    @AfterClass public static void tearDownClass() {
+        // Common cleanup for all tests
+    }
+}

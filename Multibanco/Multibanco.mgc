@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="atm.physical.CardReader" x="513" y="20">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="atm.ATM" endpointName="atm" kind="Simple"/>
+    </Class>
+    <Class name="atm.physical.CashDispenser" x="466" y="131">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="atm.ATM" x="245" y="21">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="atm.physical.CustomerConsole"
+            endpointName="customerConsole" kind="Simple"/>
+        <Association destinationClassName="atm.physical.CardReader"
+            endpointName="cardReader" kind="Simple"/>
+        <Association destinationClassName="atm.physical.CashDispenser"
+            endpointName="cashDispenser" kind="Simple"/>
+        <Association destinationClassName="atm.physical.NetworkToBank"
+            endpointName="networkToBank" kind="Simple"/>
+        <Communication destinationClassName="atm.physical.CashDispenser"/>
+        <Communication destinationClassName="atm.Session"/>
+        <Communication destinationClassName="atm.physical.NetworkToBank"/>
+        <Communication destinationClassName="atm.physical.CustomerConsole"/>
+    </Class>
+    <Class name="atm.Session" x="32" y="31">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="atm.ATM" endpointName="atm" kind="Simple"/>
+        <Communication destinationClassName="atm.physical.CardReader"/>
+        <Communication destinationClassName="atm.physical.CustomerConsole"/>
+    </Class>
+    <Class name="atm.physical.NetworkToBank" x="171" y="319">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="atm.physical.CustomerConsole" x="451" y="284">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+</ClassDiagram>

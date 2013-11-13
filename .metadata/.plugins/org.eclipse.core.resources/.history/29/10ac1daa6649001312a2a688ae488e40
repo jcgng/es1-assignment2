@@ -1,0 +1,39 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MyGenericsStackTest {
+
+	@Test
+	public void testMyGenericsStack() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPush() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPop() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPeek() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testIsStackEmpty() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testIsStackFull() {
+		fail("Not yet implemented");
+	}
+
+}

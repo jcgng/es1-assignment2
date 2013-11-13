@@ -1,0 +1,79 @@
+package src.TestSuite;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith; 
+import org.junit.runners.Suite;
+
+import src.MyGenericsStack;
+
+class MyGenericsStackTestCase {
+	private static MyGenericsStack<String> GenericsStack = new MyGenericsStack<String>(5);
+
+//	@Test
+	public static void testMyGenericsStackObject() {
+		assertNotNull(GenericsStack);
+	}
+	
+	public static void testPush() {
+		assertNotNull(GenericsStack);
+		assertFalse(GenericsStack.isStackFull());
+		while(!GenericsStack.isStackFull()) {
+			GenericsStack.push("a");
+		}
+		assertTrue(GenericsStack.isStackFull());
+		GenericsStack.push("b");
+		assertFalse(GenericsStack.isStackFull());
+		testPeek();
+	} 
+	
+//	@Test
+	public static void testPushPop() {
+		testPush();
+		try {
+			while(!GenericsStack.isStackEmpty()) {
+				GenericsStack.pop();
+			}
+			GenericsStack.pop();
+		} catch(Exception ex) {
+			assertEquals("Stack is empty. Can not remove element.",ex.getMessage());
+		}
+	}
+	
+	public static void testPeek() {
+		assertEquals(GenericsStack.peek(), "b");
+	}
+}
+//@RunWith(Suite.class) 
+//@Suite.SuiteClasses({
+//	MyGenericsStackTestCase.class
+//	InfixFullParantExTest.class,
+//	MyDynamicStackTest.class,
+//	TowersOfHanoiImplTest.class,
+//	MyMergeSortTest.class,
+//	MyLinearSearchTest.class,
+//	MyBinarySearchTest.class,
+//	RecursiveSearchTest.class
+//})
+public class MyTestSuiteEx {
+	@BeforeClass 
+	public static void setUpClass() {
+        // Common initialization done once
+    }
+	@Test
+	public static void testMyGenericsStack() {
+		MyGenericsStackTestCase.testMyGenericsStackObject();
+		MyGenericsStackTestCase.testPushPop();
+	}
+	
+    @AfterClass 
+    public static void tearDownClass() {
+        // Common cleanup for all tests
+    }
+}

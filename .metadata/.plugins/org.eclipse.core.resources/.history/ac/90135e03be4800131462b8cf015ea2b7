@@ -1,0 +1,29 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import src.RecursiveSearch;
+
+
+public class RecursiveSearchTest {
+	RecursiveSearch recursiveSearch = new RecursiveSearch();
+	
+	@Test
+	public void testRecursiveSearchFind() {	
+		int index = RecursiveSearch.recursiveSearch(MyTestSuite.inputArray,/*start*/0,/*end*/6,/*key*/MyTestSuite.keyFound);
+		assertTrue(index>0);
+		assertEquals(index,2); // workaround assertTrue
+	}
+	
+	@Test
+	public void testBinarySearchFail() {
+		int index = RecursiveSearch.recursiveSearch(MyTestSuite.inputArray,/*start*/0,/*end*/6,/*key*/MyTestSuite.keyNotFound);
+		assertTrue(index<0);
+		assertEquals(index,-3); // workaround assertTrue
+	}
+	
+	
+}

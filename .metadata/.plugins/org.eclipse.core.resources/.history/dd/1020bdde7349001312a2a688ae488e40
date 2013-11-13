@@ -1,0 +1,33 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import src.MyLinearSearch;
+
+public class MyLinearSearchTest {
+	private int[] arr = {1, 2, 3, 4};
+	private int key1 = 4;
+	private int key2 = 6;
+	
+	@Test
+	public void testMyLinearSearch() {
+		MyLinearSearch MyLS = new MyLinearSearch();
+		assertNotNull(MyLS);
+	}
+	
+	@Test
+	public void testLinerSearchFind() {
+		int index = MyLinearSearch.linerSearch(arr, key1);
+		assertTrue(index>0);
+//		assertEquals(index, 3);
+	}
+		
+	@Test
+	public void testLinerSearchFail() {
+		int index = MyLinearSearch.linerSearch(arr, key2);
+		assertTrue(index<0);
+//		assertEquals(index, -1);
+	}
+}

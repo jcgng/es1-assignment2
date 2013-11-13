@@ -1,0 +1,29 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import src.MyGenericsStack;
+
+public class MyGenericsStackTest {
+	private MyGenericsStack<String> GenericsStack = new MyGenericsStack<String>(5);
+
+	@Test
+	public void testPush() {
+		assertNotNull(GenericsStack);
+		assertFalse(GenericsStack.isStackFull());
+		while(!GenericsStack.isStackFull())
+			GenericsStack.push("a");
+		assertTrue(GenericsStack.isStackFull());
+		GenericsStack.push("b");
+		assertFalse(GenericsStack.isStackFull());
+	} 
+	
+	@Test
+	public void testPeek() {
+		GenericsStack.push("b");
+		assertEquals(GenericsStack.peek(), "b");
+	}
+
+}

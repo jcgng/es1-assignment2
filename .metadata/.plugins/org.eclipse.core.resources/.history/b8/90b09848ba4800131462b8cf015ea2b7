@@ -1,0 +1,28 @@
+package src.TestSuite;
+
+import org.junit.runner.RunWith; 
+import org.junit.runners.Suite;
+
+import org.junit.runner.JUnitCore; 
+import org.junit.runner.Result; 
+import org.junit.runner.notification.Failure;
+
+@RunWith(Suite.class) 
+@Suite.SuiteClasses({ 
+	MyBinarySearchTest.class, 
+	RecursiveSearchTest.class,
+	MyMergeSortTest.class
+})
+
+public class MyTestSuite {
+	public void runTestSuite() {
+		Result result = JUnitCore.runClasses(MyTestSuite.class); 
+		for (Failure failure : result.getFailures()) { 
+			System.out.println(failure.toString()); 
+		} 
+		System.out.println(result.wasSuccessful());
+	}
+
+}
+
+
