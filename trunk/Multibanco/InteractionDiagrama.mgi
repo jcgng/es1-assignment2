@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <CommunicationClass name="atm.physical.CardReader" x="356" y="210">
+        <Association destinationClassName="atm.ATM" endpointName="atm" kind="Simple"/>
+    </CommunicationClass>
+    <CommunicationClass name="atm.ATM" x="119" y="84">
+        <Association destinationClassName="atm.physical.CardReader"
+            endpointName="cardReader" kind="Simple"/>
+        <Communication destinationClassName="atm.Session"/>
+    </CommunicationClass>
+    <CommunicationClass name="atm.Session" x="350" y="80">
+        <Association destinationClassName="atm.ATM" endpointName="atm" kind="Simple"/>
+        <Communication destinationClassName="atm.physical.CardReader"/>
+    </CommunicationClass>
+</ClassDiagram>

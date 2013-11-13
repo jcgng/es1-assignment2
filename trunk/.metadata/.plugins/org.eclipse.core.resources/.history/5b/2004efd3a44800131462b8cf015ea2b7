@@ -1,0 +1,32 @@
+package src.TestCases;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import src.MyBinarySearch;
+
+public class MyBinarySearchTest {
+	protected int[] inputArray = { 1,3,5 }; // TODO: Use MyMergeSort
+	protected int keyFound = 3;
+	protected int keyNotFound = 4;
+	protected MyBinarySearch mbs = new MyBinarySearch();
+	
+	@Test
+	public void testBinarySearch() {
+		int resFound = testBinarySearchFind();
+		assertTrue(resFound == keyFound);
+		assertFalse(resFound != keyFound);
+		int resNotFound = testBinarySearchFail();
+		assertTrue(resNotFound != keyNotFound);
+		assertFalse(resNotFound == keyNotFound);
+	}
+	
+	public int testBinarySearchFind() {	
+		return mbs.binarySearch(inputArray,/*key*/keyFound);
+	}
+	
+	public int testBinarySearchFail() {
+		return mbs.binarySearch(inputArray,/*key*/keyNotFound);
+	}
+}

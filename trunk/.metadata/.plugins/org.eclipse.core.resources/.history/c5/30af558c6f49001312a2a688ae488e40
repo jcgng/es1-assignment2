@@ -1,0 +1,32 @@
+package src.TestSuite;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith; 
+import org.junit.runners.Suite;
+
+@RunWith(Suite.class) 
+@Suite.SuiteClasses({
+	MyLinearSearchTest.class,
+	MyBinarySearchTest.class,
+	RecursiveSearchTest.class,
+	MyMergeSortTest.class,
+	TowersOfHanoiImplTest.class,
+	InfixFullParantExTest.class,
+	MyGenericsStackTest.class,
+	MyDynamicStackTest.class
+})
+public class MyTestSuite {
+	public static int[] inputArray = { 2,6,8,10,12,14,16 }; // TODO: Use MyMergeSort
+	public static int keyFound;
+	public static int keyNotFound;
+	
+	@BeforeClass public static void setUpClass() {
+        // Common initialization done once
+		keyFound = 8;
+		keyNotFound = 7;
+    }
+    @AfterClass public static void tearDownClass() {
+        // Common cleanup for all tests
+    }
+}

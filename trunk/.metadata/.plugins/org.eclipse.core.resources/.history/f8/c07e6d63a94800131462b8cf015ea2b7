@@ -1,0 +1,32 @@
+package src.TestCases;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import src.RecursiveSearch;
+
+
+public class RecursiveSearchTest {
+	protected int[] inputArray = { 2,6,8,10,12,14,16 }; // TODO: Use MyMergeSort
+	protected int keyFound = 8;
+	protected int keyNotFound = 7;
+
+	@Test
+	public void testRecursiveSearch() {
+		int indexFound = testRecursiveSearchFind();
+//		assertTrue(indexFound==2);
+		assertEquals(""+indexFound,"2"); // workaround assertTrue
+		testBinarySearchFail();
+	}
+	
+	public int testRecursiveSearchFind() {	
+		return RecursiveSearch.recursiveSearch(inputArray,/*start*/0,/*end*/3,/*key*/3);
+	}
+	
+	public int testBinarySearchFail() {
+		return RecursiveSearch.recursiveSearch(inputArray,/*start*/0,/*end*/3,/*key*/0);
+	}
+	
+	
+}

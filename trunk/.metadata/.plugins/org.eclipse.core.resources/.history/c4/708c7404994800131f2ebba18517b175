@@ -1,0 +1,13 @@
+package src.TestCases;
+
+import org.junit.Test;
+
+import src.MyMergeSort;
+
+public class MyMergeSortTest {
+	
+	@Test
+	public void testMyMergeSort() {
+		MyMergeSort.main(new String[] {"arg1", "arg2", "arg3"});
+	}
+}

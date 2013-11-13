@@ -1,0 +1,30 @@
+package src.TestSuite;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import src.MyBinarySearch;
+
+public class MyBinarySearchTest {
+	private MyBinarySearch mbs = new MyBinarySearch();
+	public int[] inputArray = { 2,6,8,10,12,14,16 }; // TODO: Use MyMergeSort
+	public int keyFound 8;
+	public int keyNotFound 7;
+	
+	@Test
+	public void testBinarySearchFind() {
+		assertNotNull(mbs);
+		int index = mbs.binarySearch(MyTestSuite.inputArray,/*key*/MyTestSuite.keyFound);
+		assertTrue(index>0);
+		assertEquals(index,2); // workaround assertTrue
+	}
+	
+	@Test
+	public void testBinarySearchFail() {
+		assertNotNull(mbs);
+		int index = mbs.binarySearch(MyTestSuite.inputArray,/*key*/MyTestSuite.keyNotFound);
+		assertTrue(index<0);
+		assertEquals(index,-1); // workaround assertTrue
+	}
+}
